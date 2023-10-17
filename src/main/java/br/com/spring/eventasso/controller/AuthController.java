@@ -22,12 +22,10 @@ public class AuthController {
 
     @PostMapping("/login")
     public String login(@RequestBody Login login) {
-        UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =
-                new UsernamePasswordAuthenticationToken(login.login(),
-                        login.password());
 
-        Authentication authenticate = this.authenticationManager
-                .authenticate(usernamePasswordAuthenticationToken);
+        UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(login.login(), login.password());
+
+        Authentication authenticate = this.authenticationManager.authenticate(usernamePasswordAuthenticationToken);
 
         var usuario = (Usuario) authenticate.getPrincipal();
 

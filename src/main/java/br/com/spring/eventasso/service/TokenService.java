@@ -12,7 +12,7 @@ import java.time.ZoneOffset;
 public class TokenService {
     public String gerarToken(Usuario usuario) {
         return JWT.create()
-                .withIssuer("Produtos")
+                .withIssuer("eventasso")
                 .withSubject(usuario.getUsername())
                 .withClaim("id", usuario.getId())
                 .withExpiresAt(LocalDateTime.now()
@@ -24,7 +24,7 @@ public class TokenService {
 
     public String getSubject(String token) {
         return JWT.require(Algorithm.HMAC256("secreta"))
-                .withIssuer("Produtos")
+                .withIssuer("eventasso")
                 .build().verify(token).getSubject();
 
     }

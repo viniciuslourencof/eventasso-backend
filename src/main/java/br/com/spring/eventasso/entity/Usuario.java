@@ -1,7 +1,5 @@
 package br.com.spring.eventasso.entity;
 
-
-
 import org.hibernate.annotations.Where;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -9,6 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Entity(name = "usuarios")
@@ -19,10 +18,13 @@ public class Usuario implements UserDetails {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
+    @Column(name = "login")
     private String login;
 
+    @Column(name = "password")
     private String password;
 
+    @Column(name = "role")
     private String role;
 
     public Usuario() {}
@@ -34,7 +36,7 @@ public class Usuario implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role));
+        return Collections.emptyList();
     }
 
     @Override
