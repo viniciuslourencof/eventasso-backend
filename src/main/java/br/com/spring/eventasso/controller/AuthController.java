@@ -21,7 +21,6 @@ public class AuthController {
     @Autowired
     private TokenService tokenService;
 
-    @CrossOrigin(origins = "http://localhost:8080")
     @PostMapping("/login")
     public String login(@RequestBody Login login) {
 
