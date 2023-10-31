@@ -32,6 +32,8 @@ public class Configurations {
                 .permitAll()
                 .antMatchers(HttpMethod.GET, "/home")
                 .permitAll()
+                .antMatchers(HttpMethod.GET, "/usuario")
+                .permitAll()
                 .anyRequest().authenticated()
                 .and().addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class)
                 .build();
