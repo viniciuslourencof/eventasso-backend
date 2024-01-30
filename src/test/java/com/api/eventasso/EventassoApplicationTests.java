@@ -1,10 +1,10 @@
-package com.api.parkingcontrol;
+package com.api.eventasso;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ParkingControlApplicationTests {
+class EventassoApplicationTests {
 
 	@Test
 	void contextLoads() {
